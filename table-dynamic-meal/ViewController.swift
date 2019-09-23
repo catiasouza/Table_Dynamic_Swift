@@ -1,18 +1,25 @@
-//
-//  ViewController.swift
-//  table-dynamic-meal
-//
-//  Created by Catia Miranda de Souza on 23/09/19.
-//  Copyright © 2019 Catia Miranda de Souza. All rights reserved.
-//
+
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UITableViewController {
+    
+    let meals = ["brownie", "muffin", "sundubu", "x-bacon", "x-salada"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        print("tela carregada com sucesso")
+    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return meals.count
+    }
+   
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let row = indexPath.row
+        let meal = meals[row]
+        let cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: nil)
+        cell.textLabel!.text = meal
+        return cell
     }
 
 
